@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */; };
+		5F12C3D326DFA1AA008E1B86 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */; };
+		5F12C3D426DFA1AA008E1B86 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */; };
 		5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332A26B2A687003D18AF /* AppDelegate.swift */; };
 		5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332C26B2A687003D18AF /* SceneDelegate.swift */; };
-		5FEA332F26B2A687003D18AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332E26B2A687003D18AF /* ViewController.swift */; };
 		5FEA333226B2A687003D18AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333026B2A687003D18AF /* Main.storyboard */; };
 		5FEA333426B2A689003D18AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333326B2A689003D18AF /* Assets.xcassets */; };
 		5FEA333726B2A689003D18AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333526B2A689003D18AF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
+		5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		5FEA332726B2A687003D18AF /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA332A26B2A687003D18AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FEA332C26B2A687003D18AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FEA332E26B2A687003D18AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FEA333126B2A687003D18AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FEA333326B2A689003D18AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FEA333626B2A689003D18AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F12C3C926DF9911008E1B86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F12C3CA26DF991D008E1B86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FEA333026B2A687003D18AF /* Main.storyboard */,
+				5FEA333326B2A689003D18AF /* Assets.xcassets */,
+				5FEA333526B2A689003D18AF /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F12C3CB26DF9933008E1B86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F12C3CC26DF9940008E1B86 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */,
+				5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */,
+				5FEA332A26B2A687003D18AF /* AppDelegate.swift */,
+				5FEA332C26B2A687003D18AF /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		5FEA331E26B2A687003D18AF = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +96,10 @@
 		5FEA332926B2A687003D18AF /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				5FEA332A26B2A687003D18AF /* AppDelegate.swift */,
-				5FEA332C26B2A687003D18AF /* SceneDelegate.swift */,
-				5FEA332E26B2A687003D18AF /* ViewController.swift */,
-				5FEA333026B2A687003D18AF /* Main.storyboard */,
-				5FEA333326B2A689003D18AF /* Assets.xcassets */,
-				5FEA333526B2A689003D18AF /* LaunchScreen.storyboard */,
+				5F12C3C926DF9911008E1B86 /* Model */,
+				5F12C3CA26DF991D008E1B86 /* View */,
+				5F12C3CB26DF9933008E1B86 /* Controller */,
+				5F12C3CC26DF9940008E1B86 /* SupportingFiles */,
 				5FEA333826B2A689003D18AF /* Info.plist */,
 			);
 			path = Instagrid;
@@ -77,6 +115,7 @@
 				5FEA332326B2A687003D18AF /* Sources */,
 				5FEA332426B2A687003D18AF /* Frameworks */,
 				5FEA332526B2A687003D18AF /* Resources */,
+				5F12C3CF26DFA05A008E1B86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,18 +165,40 @@
 			files = (
 				5FEA333726B2A689003D18AF /* LaunchScreen.storyboard in Resources */,
 				5FEA333426B2A689003D18AF /* Assets.xcassets in Resources */,
+				5F12C3D426DFA1AA008E1B86 /* ThirstySoftRegular.otf in Resources */,
+				5F12C3D326DFA1AA008E1B86 /* Delm-Medium.otf in Resources */,
 				5FEA333226B2A687003D18AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F12C3CF26DFA05A008E1B86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5FEA332326B2A687003D18AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FEA332F26B2A687003D18AF /* ViewController.swift in Sources */,
+				5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */,
 				5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */,
 				5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */,
 			);
@@ -216,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,6 +350,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLCUCTBNY2;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLCUCTBNY2;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
