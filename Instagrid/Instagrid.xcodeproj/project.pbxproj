@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F016CBC26E231C800392B0E /* EnumLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F016CBB26E231C700392B0E /* EnumLayout.swift */; };
 		5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */; };
 		5F12C3D326DFA1AA008E1B86 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */; };
 		5F12C3D426DFA1AA008E1B86 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */; };
+		5F39EDD226E396580029C020 /* PhotoAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F39EDD126E396580029C020 /* PhotoAccess.swift */; };
 		5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332A26B2A687003D18AF /* AppDelegate.swift */; };
 		5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332C26B2A687003D18AF /* SceneDelegate.swift */; };
 		5FEA333226B2A687003D18AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333026B2A687003D18AF /* Main.storyboard */; };
@@ -18,9 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F016CBB26E231C700392B0E /* EnumLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumLayout.swift; sourceTree = "<group>"; };
 		5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		5F39EDD126E396580029C020 /* PhotoAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAccess.swift; sourceTree = "<group>"; };
 		5FEA332726B2A687003D18AF /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA332A26B2A687003D18AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FEA332C26B2A687003D18AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		5F12C3C926DF9911008E1B86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5F016CBB26E231C700392B0E /* EnumLayout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -52,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				5FEA333026B2A687003D18AF /* Main.storyboard */,
-				5FEA333326B2A689003D18AF /* Assets.xcassets */,
 				5FEA333526B2A689003D18AF /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -69,10 +73,12 @@
 		5F12C3CC26DF9940008E1B86 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5FEA333326B2A689003D18AF /* Assets.xcassets */,
 				5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */,
 				5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */,
 				5FEA332A26B2A687003D18AF /* AppDelegate.swift */,
 				5FEA332C26B2A687003D18AF /* SceneDelegate.swift */,
+				5F39EDD126E396580029C020 /* PhotoAccess.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -200,6 +206,8 @@
 			files = (
 				5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */,
 				5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */,
+				5F016CBC26E231C800392B0E /* EnumLayout.swift in Sources */,
+				5F39EDD226E396580029C020 /* PhotoAccess.swift in Sources */,
 				5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

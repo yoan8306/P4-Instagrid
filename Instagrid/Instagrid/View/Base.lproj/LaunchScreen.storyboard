@@ -16,18 +16,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="SVq-PQ-ezM">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="20" y="418" width="374" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="SVq-PQ-ezM" secondAttribute="height" multiplier="15:8" id="Yaw-GD-G9h"/>
-                                    <constraint firstAttribute="height" constant="128" id="Ypv-L3-4Fg"/>
+                                    <constraint firstAttribute="height" constant="60" id="kbG-Ct-ncu"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.1347581148" green="0.44670510289999998" blue="0.63355261090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2685162425" green="0.67797231670000002" blue="0.92585080860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.25670292970000003" green="0.65444052220000004" blue="0.90228456260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SVq-PQ-ezM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1E9-Fb-LV3"/>
-                            <constraint firstItem="SVq-PQ-ezM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9fA-O5-jQE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVq-PQ-ezM" secondAttribute="trailing" constant="20" id="ETS-YX-lR8"/>
+                            <constraint firstItem="SVq-PQ-ezM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GEi-kD-xZ8"/>
+                            <constraint firstItem="SVq-PQ-ezM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vfB-jd-NOa"/>
+                            <constraint firstItem="SVq-PQ-ezM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xaW-pw-bOf"/>
                         </constraints>
                     </view>
                 </viewController>
