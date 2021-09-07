@@ -56,22 +56,17 @@ class PrincipalViewController: UIViewController {
     }
 
     private func layoutViewCase() {
-        hideImageSelected()
-        viewAllImageButton()
+//        hideImageSelected()
+//        viewAllImageButton()
 
-        switch typeLayout {
+            imageButton2.isHidden = typeLayout == .layout1
+            imageSelected1.isHidden = typeLayout != .layout1
 
-        case .layout1:
-            imageButton2.isHidden = true
-            imageSelected1.isHidden = false
+            imageButton3.isHidden = typeLayout == .layout2
+            imageSelected2.isHidden = typeLayout != .layout2
 
-        case .layout2:
-            imageButton3.isHidden = true
-            imageSelected2.isHidden = false
+            imageSelected3.isHidden = typeLayout != .layout3
 
-        case .layout3:
-            imageSelected3.isHidden = false
-        }
     }
 
     private func hideImageSelected() {
@@ -87,5 +82,4 @@ class PrincipalViewController: UIViewController {
             imageButton?.isHidden = false
         }
     }
-
 }
