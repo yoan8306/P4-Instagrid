@@ -11,7 +11,6 @@
 		5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */; };
 		5F12C3D326DFA1AA008E1B86 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */; };
 		5F12C3D426DFA1AA008E1B86 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */; };
-		5F39EDD226E396580029C020 /* PhotoAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F39EDD126E396580029C020 /* PhotoAccess.swift */; };
 		5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332A26B2A687003D18AF /* AppDelegate.swift */; };
 		5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA332C26B2A687003D18AF /* SceneDelegate.swift */; };
 		5FEA333226B2A687003D18AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333026B2A687003D18AF /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 		5F12C3CD26DF9FED008E1B86 /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		5F12C3D226DFA1AA008E1B86 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		5F39EDD126E396580029C020 /* PhotoAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAccess.swift; sourceTree = "<group>"; };
 		5FEA332726B2A687003D18AF /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA332A26B2A687003D18AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FEA332C26B2A687003D18AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 				5F12C3D126DFA1AA008E1B86 /* Delm-Medium.otf */,
 				5FEA332A26B2A687003D18AF /* AppDelegate.swift */,
 				5FEA332C26B2A687003D18AF /* SceneDelegate.swift */,
-				5F39EDD126E396580029C020 /* PhotoAccess.swift */,
+				5FEA333826B2A689003D18AF /* Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -106,7 +104,6 @@
 				5F12C3CA26DF991D008E1B86 /* View */,
 				5F12C3CB26DF9933008E1B86 /* Controller */,
 				5F12C3CC26DF9940008E1B86 /* SupportingFiles */,
-				5FEA333826B2A689003D18AF /* Info.plist */,
 			);
 			path = Instagrid;
 			sourceTree = "<group>";
@@ -207,7 +204,6 @@
 				5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */,
 				5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */,
 				5F016CBC26E231C800392B0E /* EnumLayout.swift in Sources */,
-				5F39EDD226E396580029C020 /* PhotoAccess.swift in Sources */,
 				5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,8 +353,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLCUCTBNY2;
-				INFOPLIST_FILE = Instagrid/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				INFOPLIST_FILE = Instagrid/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,8 +373,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLCUCTBNY2;
-				INFOPLIST_FILE = Instagrid/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				INFOPLIST_FILE = Instagrid/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
