@@ -45,9 +45,9 @@ class PrincipalViewController: UIViewController {
     }
 
     private func initializeViewContainer() {
-        let viewButton = [viewPhoto1, imageButton1, viewPhoto2, imageButton2, viewPhoto3, imageButton3,
-                          viewPhoto4, imageButton4]
-        for view in viewButton {
+        let viewImageButton = [imagePhoto1, imageButton1, imagePhoto2, imageButton2, imagePhoto3, imageButton3,
+                          imagePhoto4, imageButton4]
+        for view in viewImageButton {
             view?.layer.cornerRadius = 8
             photoContainer.layer.cornerRadius = 10
             layoutViewCase()
@@ -69,7 +69,6 @@ class PrincipalViewController: UIViewController {
     }
 
     @IBAction func selectPhoto(_ sender: UIButton) {
-        sender.backgroundColor = #colorLiteral(red: 0.06709771603, green: 0.3800081015, blue: 0.574813962, alpha: 1)
         switch sender {
         case imageButton1:
             imageSelected = imagePhoto1
@@ -82,10 +81,10 @@ class PrincipalViewController: UIViewController {
         default:
             break
         }
-        openLibrary()
+        openPhotoLibrary()
     }
 
-    private func openLibrary() {
+    private func openPhotoLibrary() {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
@@ -93,6 +92,7 @@ class PrincipalViewController: UIViewController {
             present(imagePicker, animated: true, completion: nil)
         }
     }
+
     private func layoutViewCase() {
         viewPhoto2.isHidden = typeLayout == .layout1
         imageSelected1.isHidden = typeLayout != .layout1
