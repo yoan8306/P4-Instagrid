@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="width" secondItem="CDT-9Y-Cpj" secondAttribute="height" multiplier="1:1" id="bu6-H1-jrn"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc" customClass="PhotoContainer" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="40" y="164" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-oC-DQq">
@@ -180,12 +180,16 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.067097716030000004" green="0.38000810149999997" blue="0.57481396200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9Ce-86-Euc" secondAttribute="height" multiplier="1:1" id="DC7-wU-N19"/>
                                     <constraint firstAttribute="bottom" secondItem="tSa-oC-DQq" secondAttribute="bottom" constant="10" id="Fwl-jp-ElR"/>
                                     <constraint firstItem="tSa-oC-DQq" firstAttribute="leading" secondItem="9Ce-86-Euc" secondAttribute="leading" constant="10" id="Lde-Xh-JnF"/>
                                     <constraint firstItem="tSa-oC-DQq" firstAttribute="top" secondItem="9Ce-86-Euc" secondAttribute="top" constant="10" id="a8K-D0-4Ba"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hI9-MK-hDz" appends="YES" id="pZO-bl-Ngm"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxj-nc-YPK">
                                 <rect key="frame" x="55" y="488" width="60" height="60"/>
@@ -234,6 +238,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa7-u5-WqW">
                                 <rect key="frame" x="86" y="137" width="148" height="27"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="DPe-bS-J3N"/>
                                 </constraints>
@@ -410,6 +415,7 @@
                         <outlet property="layoutButton2" destination="2lo-0o-1OP" id="ecp-1k-WkV"/>
                         <outlet property="layoutButton3" destination="Aqe-Wz-lW2" id="a3g-gR-G8I"/>
                         <outlet property="photoContainer" destination="9Ce-86-Euc" id="lwh-KY-R1u"/>
+                        <outlet property="principalView" destination="JrL-1r-850" id="tNK-QU-4By"/>
                         <outlet property="viewPhoto1" destination="tBW-8a-lNR" id="8EF-yP-KcV"/>
                         <outlet property="viewPhoto2" destination="dFW-uR-2js" id="dkO-Ak-Dlq"/>
                         <outlet property="viewPhoto3" destination="CRh-N7-gaU" id="gHq-QP-TNn"/>
@@ -417,6 +423,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="hI9-MK-hDz">
+                    <connections>
+                        <outlet property="delegate" destination="JrL-1r-850" id="13o-bx-LzW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="232.5" y="104.5774647887324"/>
         </scene>

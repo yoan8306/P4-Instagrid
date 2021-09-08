@@ -12,6 +12,7 @@ class PrincipalViewController: UIViewController {
     var imagePicker = UIImagePickerController()
 
     @IBOutlet weak var photoContainer: UIView!
+    @IBOutlet var principalView: UIView!
 
     @IBOutlet weak var viewPhoto1: UIView!
     @IBOutlet weak var viewPhoto2: UIView!
@@ -41,12 +42,18 @@ class PrincipalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(_:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        let swipeLeft =  UISwipeGestureRecognizer(target: self, action: #selector(swipe(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.photoContainer.addGestureRecognizer(swipeUp)
+        self.photoContainer.addGestureRecognizer(swipeLeft)
         initializeViewContainer()
     }
 
     private func initializeViewContainer() {
         let viewImageButton = [imagePhoto1, imageButton1, imagePhoto2, imageButton2, imagePhoto3, imageButton3,
-                          imagePhoto4, imageButton4]
+                               imagePhoto4, imageButton4]
         for view in viewImageButton {
             view?.layer.cornerRadius = 8
             photoContainer.layer.cornerRadius = 10
@@ -69,6 +76,7 @@ class PrincipalViewController: UIViewController {
     }
 
     @IBAction func selectPhoto(_ sender: UIButton) {
+        print("hello i swiped")
         switch sender {
         case imageButton1:
             imageSelected = imagePhoto1
@@ -117,4 +125,44 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+// - Swipe PhotoContainer
+extension PrincipalViewController {
+
+   @objc func swipe(_ sender: UISwipeGestureRecognizer) {
+   let deviceOrientation = UIDevice.current.orientation
+        switch deviceOrientation {
+        case .landscapeLeft, .landscapeRight:
+            if sender.direction == .left {
+                animateSwipe(translationX: -view.frame.width, translationY: 0)
+            }
+
+        case .portrait, .portraitUpsideDown:
+            if sender.direction == .up {
+            animateSwipe(translationX: 0, translationY: -view.frame.height)
+            }
+
+        default:
+            break
+        }
+    }
+
+    private func animateSwipe(translationX axeX: CGFloat, translationY axeY: CGFloat) {
+        UIView.animate(withDuration: 0.7, animations: {
+            self.photoContainer.transform = CGAffineTransform(translationX: axeX, y: axeY)
+        }) { (completed) in
+            if completed {
+                self.photoContainer.transform = CGAffineTransform(translationX: -axeX, y: -axeY)
+                self.animateBackToCenter()
+            }
+        }
+    }
+
+    private func animateBackToCenter() {
+        UIView.animate(withDuration: 0.7, animations: {
+            self.photoContainer.transform = .identity
+        }, completion: nil)
+    }
+
 }
