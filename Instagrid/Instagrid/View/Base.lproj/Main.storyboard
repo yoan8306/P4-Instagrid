@@ -423,11 +423,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="hI9-MK-hDz">
-                    <connections>
-                        <outlet property="delegate" destination="JrL-1r-850" id="13o-bx-LzW"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="hI9-MK-hDz"/>
             </objects>
             <point key="canvasLocation" x="232.5" y="104.5774647887324"/>
         </scene>
