@@ -12,33 +12,33 @@ class PrincipalViewController: UIViewController {
     private var typeLayout: Layout = .layout3
     private var imageSelected: UIImageView?
     @IBOutlet weak var photoContainer: UIView!
-    
+
     @IBOutlet weak var viewPhoto1: UIView!
     @IBOutlet weak var viewPhoto2: UIView!
     @IBOutlet weak var viewPhoto3: UIView!
     @IBOutlet weak var viewPhoto4: UIView!
-    
+
     @IBOutlet weak var imageButton1: UIButton!
     @IBOutlet weak var imageButton2: UIButton!
     @IBOutlet weak var imageButton3: UIButton!
     @IBOutlet weak var imageButton4: UIButton!
-    
+
     @IBOutlet weak var imagePhoto1: UIImageView!
     @IBOutlet weak var imagePhoto2: UIImageView!
     @IBOutlet weak var imagePhoto3: UIImageView!
     @IBOutlet weak var imagePhoto4: UIImageView!
-    
+
     @IBOutlet weak var layoutButton1: UIButton!
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
-    
+
     @IBOutlet weak var imageSelected1: UIImageView!
     @IBOutlet weak var imageSelected2: UIImageView!
     @IBOutlet weak var imageSelected3: UIImageView!
-    
+
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(_:)))
@@ -49,19 +49,19 @@ class PrincipalViewController: UIViewController {
         self.photoContainer.addGestureRecognizer(swipeLeft)
         initializeViewContainer()
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
             arrowImage.image = UIImage(named: "Arrow Left")
             swipeLabel.text = "Swipe left to share"
-            
+
         } else {
             arrowImage.image = UIImage(named: "Arrow Up")
             swipeLabel.text = "Swipe up to share"
         }
     }
-    
+
     private func initializeViewContainer() {
         let viewImageButton = [imagePhoto1, imageButton1, imagePhoto2, imageButton2, imagePhoto3, imageButton3,
                                imagePhoto4, imageButton4]
@@ -71,7 +71,7 @@ class PrincipalViewController: UIViewController {
             layoutViewCase()
         }
     }
-    
+
     @IBAction func buttonLayoutAction(_ sender: UIButton) {
         switch sender {
         case layoutButton1:
@@ -85,14 +85,14 @@ class PrincipalViewController: UIViewController {
         }
         layoutViewCase()
     }
-    
+
     private func layoutViewCase() {
         viewPhoto2.isHidden = typeLayout == .layout1
         imageSelected1.isHidden = typeLayout != .layout1
-        
+
         viewPhoto3.isHidden = typeLayout == .layout2
         imageSelected2.isHidden = typeLayout != .layout2
-        
+
         imageSelected3.isHidden = typeLayout != .layout3
     }
 }
@@ -114,7 +114,7 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
         }
         openPhotoLibrary()
     }
-    
+
     private func openPhotoLibrary() {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             imagePicker.delegate = self
@@ -123,7 +123,7 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
             present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             if let targetImage = imageSelected {
@@ -132,7 +132,7 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
@@ -142,7 +142,7 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
 extension PrincipalViewController {
     @objc func swipe(_ sender: UISwipeGestureRecognizer) {
         let deviceOrientation = UIDevice.current.orientation
-        
+
         switch deviceOrientation {
         case .landscapeLeft, .landscapeRight:
             if sender.direction == .left {
@@ -156,7 +156,7 @@ extension PrincipalViewController {
             break
         }
     }
-    
+
     private func animateSwipe(translationX axeX: CGFloat, translationY axeY: CGFloat) {
         UIView.animate(withDuration: 0.8, animations: {
             self.photoContainer.transform = CGAffineTransform(translationX: axeX, y: axeY)
@@ -167,7 +167,7 @@ extension PrincipalViewController {
             }
         }
     }
-    
+
     private func animateBackToCenter() {
         UIView.animate(withDuration: 0.8, animations: {
             self.photoContainer.transform = .identity
@@ -182,8 +182,7 @@ extension PrincipalViewController {
         let image = [convertUiView]
         let activityViewController = UIActivityViewController(activityItems: image as [UIImage], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
-        
-        // present the view controller
+
         self.present(activityViewController, animated: true, completion: nil)
     }
 }

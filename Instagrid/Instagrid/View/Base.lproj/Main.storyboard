@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="width" secondItem="CDT-9Y-Cpj" secondAttribute="height" multiplier="1:1" id="bu6-H1-jrn"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc" customClass="PhotoContainer" customModule="Instagrid" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc">
                                 <rect key="frame" x="40" y="164" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-oC-DQq">

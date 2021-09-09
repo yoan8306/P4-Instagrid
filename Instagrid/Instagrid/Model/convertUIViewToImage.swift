@@ -28,7 +28,6 @@ extension UIView {
         let image = renderer.image { rendererContext in
             self.layer.render(in: rendererContext.cgContext)
         }
-
         return image
     }
 }
