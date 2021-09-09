@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// enum different case of photoContainer
 enum Layout {
     case layout1, layout2, layout3
 }

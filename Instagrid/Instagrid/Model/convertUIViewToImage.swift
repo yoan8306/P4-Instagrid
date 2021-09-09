@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 extension UIView {
+    /// make scale all subView
+    /// - Parameter scale: we can configure scale
     func scale(by scale: CGFloat) {
         self.contentScaleFactor = scale
         for subview in self.subviews {
@@ -16,6 +18,9 @@ extension UIView {
         }
     }
 
+    /// transform UiView to UiImage
+    /// - Parameter scale: scale = nil because don't touch scale in this case
+    /// - Returns: An image for sharing
     func getImage(scale: CGFloat? = nil) -> UIImage {
         let newScale = scale ?? UIScreen.main.scale
         self.scale(by: newScale)
