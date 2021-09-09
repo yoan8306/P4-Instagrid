@@ -17,6 +17,7 @@
 		5FEA333226B2A687003D18AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333026B2A687003D18AF /* Main.storyboard */; };
 		5FEA333426B2A689003D18AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333326B2A689003D18AF /* Assets.xcassets */; };
 		5FEA333726B2A689003D18AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA333526B2A689003D18AF /* LaunchScreen.storyboard */; };
+		5FFB432F26EA05D200BC4F57 /* convertUIViewToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFB432E26EA05D200BC4F57 /* convertUIViewToImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5FEA333326B2A689003D18AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FEA333626B2A689003D18AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FEA333826B2A689003D18AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FFB432E26EA05D200BC4F57 /* convertUIViewToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertUIViewToImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				5F016CBB26E231C700392B0E /* EnumLayout.swift */,
+				5FFB432E26EA05D200BC4F57 /* convertUIViewToImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				5FE59BBB26E943D0007921D7 /* PhotoContainer.swift in Sources */,
 				5F12C3CE26DF9FED008E1B86 /* PrincipalViewController.swift in Sources */,
 				5FEA332B26B2A687003D18AF /* AppDelegate.swift in Sources */,
+				5FFB432F26EA05D200BC4F57 /* convertUIViewToImage.swift in Sources */,
 				5F016CBC26E231C800392B0E /* EnumLayout.swift in Sources */,
 				5FEA332D26B2A687003D18AF /* SceneDelegate.swift in Sources */,
 			);
