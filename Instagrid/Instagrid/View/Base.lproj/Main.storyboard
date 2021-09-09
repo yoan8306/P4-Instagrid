@@ -400,6 +400,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="arrowImage" destination="CDT-9Y-Cpj" id="LRl-8g-IFq"/>
                         <outlet property="imageButton1" destination="fR3-lX-bRF" id="Ltc-oP-nnX"/>
                         <outlet property="imageButton2" destination="zX7-v6-GJP" id="TPT-Dj-Pt5"/>
                         <outlet property="imageButton3" destination="gE7-HY-EBw" id="moc-JI-G5D"/>
@@ -415,7 +416,7 @@
                         <outlet property="layoutButton2" destination="2lo-0o-1OP" id="ecp-1k-WkV"/>
                         <outlet property="layoutButton3" destination="Aqe-Wz-lW2" id="a3g-gR-G8I"/>
                         <outlet property="photoContainer" destination="9Ce-86-Euc" id="lwh-KY-R1u"/>
-                        <outlet property="principalView" destination="JrL-1r-850" id="tNK-QU-4By"/>
+                        <outlet property="swipeLabel" destination="fa7-u5-WqW" id="WKk-xI-R3d"/>
                         <outlet property="viewPhoto1" destination="tBW-8a-lNR" id="8EF-yP-KcV"/>
                         <outlet property="viewPhoto2" destination="dFW-uR-2js" id="dkO-Ak-Dlq"/>
                         <outlet property="viewPhoto3" destination="CRh-N7-gaU" id="gHq-QP-TNn"/>

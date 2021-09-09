@@ -9,10 +9,10 @@ import UIKit
 
 class PrincipalViewController: UIViewController {
 
-    var imagePicker = UIImagePickerController()
-
+    private var imagePicker = UIImagePickerController()
+    private var typeLayout: Layout = .layout3
+    private var imageSelected: UIImageView?
     @IBOutlet weak var photoContainer: UIView!
-    @IBOutlet var principalView: UIView!
 
     @IBOutlet weak var viewPhoto1: UIView!
     @IBOutlet weak var viewPhoto2: UIView!
@@ -37,8 +37,8 @@ class PrincipalViewController: UIViewController {
     @IBOutlet weak var imageSelected2: UIImageView!
     @IBOutlet weak var imageSelected3: UIImageView!
 
-    var typeLayout: Layout = .layout3
-    var imageSelected: UIImageView?
+    @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var swipeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,18 @@ class PrincipalViewController: UIViewController {
         self.photoContainer.addGestureRecognizer(swipeLeft)
         initializeViewContainer()
     }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+           super.viewWillTransition(to: size, with: coordinator)
+           if UIDevice.current.orientation.isLandscape {
+            arrowImage.image = UIImage(named: "Arrow Left")
+            swipeLabel.text = "Swipe left to share"
+
+           } else {
+            arrowImage.image = UIImage(named: "Arrow Up")
+            swipeLabel.text = "Swipe up to share"
+           }
+       }
 
     private func initializeViewContainer() {
         let viewImageButton = [imagePhoto1, imageButton1, imagePhoto2, imageButton2, imagePhoto3, imageButton3,
@@ -75,8 +87,22 @@ class PrincipalViewController: UIViewController {
         layoutViewCase()
     }
 
+    private func layoutViewCase() {
+        viewPhoto2.isHidden = typeLayout == .layout1
+        imageSelected1.isHidden = typeLayout != .layout1
+
+        viewPhoto3.isHidden = typeLayout == .layout2
+        imageSelected2.isHidden = typeLayout != .layout2
+
+        imageSelected3.isHidden = typeLayout != .layout3
+    }
+}
+
+
+// - Select photo
+extension PrincipalViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     @IBAction func selectPhoto(_ sender: UIButton) {
-        print("hello i swiped")
         switch sender {
         case imageButton1:
             imageSelected = imagePhoto1
@@ -100,19 +126,7 @@ class PrincipalViewController: UIViewController {
             present(imagePicker, animated: true, completion: nil)
         }
     }
-
-    private func layoutViewCase() {
-        viewPhoto2.isHidden = typeLayout == .layout1
-        imageSelected1.isHidden = typeLayout != .layout1
-
-        viewPhoto3.isHidden = typeLayout == .layout2
-        imageSelected2.isHidden = typeLayout != .layout2
-
-        imageSelected3.isHidden = typeLayout != .layout3
-    }
-}
-
-extension PrincipalViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             if let targetImage = imageSelected {
@@ -129,40 +143,37 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
 
 // - Swipe PhotoContainer
 extension PrincipalViewController {
-
    @objc func swipe(_ sender: UISwipeGestureRecognizer) {
    let deviceOrientation = UIDevice.current.orientation
+
         switch deviceOrientation {
         case .landscapeLeft, .landscapeRight:
             if sender.direction == .left {
                 animateSwipe(translationX: -view.frame.width, translationY: 0)
             }
-
-        case .portrait, .portraitUpsideDown:
+        case .portrait:
             if sender.direction == .up {
             animateSwipe(translationX: 0, translationY: -view.frame.height)
             }
-
         default:
             break
         }
     }
 
     private func animateSwipe(translationX axeX: CGFloat, translationY axeY: CGFloat) {
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: 0.8, animations: {
             self.photoContainer.transform = CGAffineTransform(translationX: axeX, y: axeY)
         }) { (completed) in
             if completed {
-                self.photoContainer.transform = CGAffineTransform(translationX: -axeX, y: -axeY)
+//                self.photoContainer.transform = CGAffineTransform(translationX: -axeX, y: -axeY)
                 self.animateBackToCenter()
             }
         }
     }
 
     private func animateBackToCenter() {
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: 0.8, animations: {
             self.photoContainer.transform = .identity
         }, completion: nil)
     }
-
 }
