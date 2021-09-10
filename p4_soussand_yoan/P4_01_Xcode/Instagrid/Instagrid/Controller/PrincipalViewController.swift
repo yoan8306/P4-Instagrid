@@ -49,7 +49,7 @@ class PrincipalViewController: UIViewController {
     /// for detect orientation and change label and arrow image
     /// - Parameters:
     ///   - size: size screen
-    ///   - coordinator: coordinator change
+    ///   - coordinator: if coordinator change
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
@@ -83,7 +83,7 @@ class PrincipalViewController: UIViewController {
         }
     }
 
-    /// when select button layout
+    /// when select layout button place image selected on the button
     /// - Parameter sender: identify button layout selected
     @IBAction func buttonLayoutAction(_ sender: UIButton) {
         switch sender {
