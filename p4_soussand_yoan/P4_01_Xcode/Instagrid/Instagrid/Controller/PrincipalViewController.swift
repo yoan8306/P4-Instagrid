@@ -15,29 +15,12 @@ class PrincipalViewController: UIViewController {
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
 
-    @IBOutlet weak var photoContainer: UIView!
-    @IBOutlet weak var viewPhoto1: UIView!
-    @IBOutlet weak var viewPhoto2: UIView!
-    @IBOutlet weak var viewPhoto3: UIView!
-    @IBOutlet weak var viewPhoto4: UIView!
+    @IBOutlet var uiViewPhoto: [UIView]!
+    @IBOutlet var buttonPhoto: [UIButton]!
+    @IBOutlet var imagePhoto: [UIImageView]!
 
-    @IBOutlet weak var imageButton1: UIButton!
-    @IBOutlet weak var imageButton2: UIButton!
-    @IBOutlet weak var imageButton3: UIButton!
-    @IBOutlet weak var imageButton4: UIButton!
-
-    @IBOutlet weak var imagePhoto1: UIImageView!
-    @IBOutlet weak var imagePhoto2: UIImageView!
-    @IBOutlet weak var imagePhoto3: UIImageView!
-    @IBOutlet weak var imagePhoto4: UIImageView!
-
-    @IBOutlet weak var layoutButton1: UIButton!
-    @IBOutlet weak var layoutButton2: UIButton!
-    @IBOutlet weak var layoutButton3: UIButton!
-
-    @IBOutlet weak var imageSelected1: UIImageView!
-    @IBOutlet weak var imageSelected2: UIImageView!
-    @IBOutlet weak var imageSelected3: UIImageView!
+    @IBOutlet var layoutButton: [UIButton]!
+    @IBOutlet var imageOfSelected: [UIImageView]!
 
     /// prepare interface
     override func viewDidLoad() {
@@ -68,17 +51,15 @@ class PrincipalViewController: UIViewController {
         swipeUp.direction = UISwipeGestureRecognizer.Direction.up
         let swipeLeft =  UISwipeGestureRecognizer(target: self, action: #selector(swipe(_:)))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-        self.photoContainer.addGestureRecognizer(swipeUp)
-        self.photoContainer.addGestureRecognizer(swipeLeft)
+        self.uiViewPhoto[0].addGestureRecognizer(swipeUp)
+        self.uiViewPhoto[0].addGestureRecognizer(swipeLeft)
     }
 
     /// smooth it out the photoContainer and subviews
     private func initializeViewContainer() {
-        let viewImageButton = [imagePhoto1, imageButton1, imagePhoto2, imageButton2, imagePhoto3, imageButton3,
-                               imagePhoto4, imageButton4]
-        for view in viewImageButton {
-            view?.layer.cornerRadius = 8
-            photoContainer.layer.cornerRadius = 10
+        for element in imagePhoto + buttonPhoto {
+            element.layer.cornerRadius = 8
+            uiViewPhoto[0].layer.cornerRadius = 10
             layoutViewCase()
         }
     }
@@ -87,11 +68,11 @@ class PrincipalViewController: UIViewController {
     /// - Parameter sender: identify button layout selected
     @IBAction func buttonLayoutAction(_ sender: UIButton) {
         switch sender {
-        case layoutButton1:
+        case layoutButton[0]:
             typeLayout = .layout1
-        case layoutButton2:
+        case layoutButton[1]:
             typeLayout = .layout2
-        case layoutButton3:
+        case layoutButton[2]:
             typeLayout = .layout3
         default:
             break
@@ -101,13 +82,13 @@ class PrincipalViewController: UIViewController {
 
     /// hide or show image button selected
     private func layoutViewCase() {
-        viewPhoto2.isHidden = typeLayout == .layout1
-        imageSelected1.isHidden = typeLayout != .layout1
+        uiViewPhoto[2].isHidden = typeLayout == .layout1
+        imageOfSelected[0].isHidden = typeLayout != .layout1
 
-        viewPhoto3.isHidden = typeLayout == .layout2
-        imageSelected2.isHidden = typeLayout != .layout2
+        uiViewPhoto[3].isHidden = typeLayout == .layout2
+        imageOfSelected[1].isHidden = typeLayout != .layout2
 
-        imageSelected3.isHidden = typeLayout != .layout3
+        imageOfSelected[2].isHidden = typeLayout != .layout3
     }
 }
 
@@ -117,14 +98,14 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
     /// - Parameter sender: identify button taped
     @IBAction func selectPhoto(_ sender: UIButton) {
         switch sender {
-        case imageButton1:
-            imageSelected = imagePhoto1
-        case imageButton2:
-            imageSelected = imagePhoto2
-        case imageButton3:
-            imageSelected = imagePhoto3
-        case imageButton4:
-            imageSelected = imagePhoto4
+        case buttonPhoto[0]:
+            imageSelected = imagePhoto[0]
+        case buttonPhoto[1]:
+            imageSelected = imagePhoto[1]
+        case buttonPhoto[2]:
+            imageSelected = imagePhoto[2]
+        case buttonPhoto[3]:
+            imageSelected = imagePhoto[3]
         default:
             break
         }
@@ -188,7 +169,7 @@ extension PrincipalViewController {
     ///   - axeY: translation to axe y
     private func animateSwipe(translationX axeX: CGFloat, translationY axeY: CGFloat) {
         UIView.animate(withDuration: 0.8, animations: {
-            self.photoContainer.transform = CGAffineTransform(translationX: axeX, y: axeY)
+            self.uiViewPhoto[0].transform = CGAffineTransform(translationX: axeX, y: axeY)
         }) { (completed) in
             if completed {
                 self.shareActivityController()
@@ -200,7 +181,7 @@ extension PrincipalViewController {
     /// return uiView to origine
     private func animateBackToCenter() {
         UIView.animate(withDuration: 0.8, animations: {
-            self.photoContainer.transform = .identity
+            self.uiViewPhoto[0].transform = .identity
         }, completion: nil)
     }
 }
@@ -209,7 +190,7 @@ extension PrincipalViewController {
 extension PrincipalViewController {
     /// share photo with UiActivityViewController
     private func shareActivityController() {
-        let convertUiView = photoContainer.getImage()
+        let convertUiView = uiViewPhoto[0].getImage()
         let image = [convertUiView]
         let activityViewController = UIActivityViewController(activityItems: image as [UIImage], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
