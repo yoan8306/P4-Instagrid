@@ -45,13 +45,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F12C3C926DF9911008E1B86 /* Model */ = {
+		5F12C3C926DF9911008E1B86 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
 				5F016CBB26E231C700392B0E /* EnumLayout.swift */,
-				5FFB432E26EA05D200BC4F57 /* convertUIViewToImage.swift */,
 			);
-			path = Model;
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		5F12C3CA26DF991D008E1B86 /* View */ = {
@@ -84,6 +83,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		5FB08DEA26F36052009D58A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FFB432E26EA05D200BC4F57 /* convertUIViewToImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5FEA331E26B2A687003D18AF = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +110,8 @@
 		5FEA332926B2A687003D18AF /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				5F12C3C926DF9911008E1B86 /* Model */,
+				5FB08DEA26F36052009D58A3 /* Extensions */,
+				5F12C3C926DF9911008E1B86 /* Enum */,
 				5F12C3CA26DF991D008E1B86 /* View */,
 				5F12C3CB26DF9933008E1B86 /* Controller */,
 				5F12C3CC26DF9940008E1B86 /* SupportingFiles */,

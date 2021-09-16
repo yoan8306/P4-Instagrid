@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="width" secondItem="CDT-9Y-Cpj" secondAttribute="height" multiplier="1:1" id="bu6-H1-jrn"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc" userLabel="UiViewPhoto0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-86-Euc" userLabel="Photo Container">
                                 <rect key="frame" x="40" y="164" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-oC-DQq">
@@ -56,9 +56,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR3-lX-bRF" userLabel="Button Photo 0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="fR3-lX-bRF" secondAttribute="height" multiplier="1:1" id="rGs-Wr-cRQ"/>
-                                                                </constraints>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TI9-aV-MTu"/>
@@ -119,9 +116,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYX-ry-HtX" userLabel="Button Photo 3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="eYX-ry-HtX" secondAttribute="height" multiplier="1:1" id="JcP-s3-eiw"/>
-                                                                </constraints>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yNI-JC-7dB"/>
@@ -363,8 +357,8 @@
                     </view>
                     <connections>
                         <outlet property="arrowImage" destination="CDT-9Y-Cpj" id="LRl-8g-IFq"/>
+                        <outlet property="photoContainer" destination="9Ce-86-Euc" id="htZ-Kp-WVj"/>
                         <outlet property="swipeLabel" destination="fa7-u5-WqW" id="WKk-xI-R3d"/>
-                        <outletCollection property="uiViewPhoto" destination="9Ce-86-Euc" collectionClass="NSMutableArray" id="8Yk-PE-cn8"/>
                         <outletCollection property="uiViewPhoto" destination="tBW-8a-lNR" collectionClass="NSMutableArray" id="aNa-W1-9kk"/>
                         <outletCollection property="uiViewPhoto" destination="dFW-uR-2js" collectionClass="NSMutableArray" id="GdQ-Zy-9VC"/>
                         <outletCollection property="uiViewPhoto" destination="CRh-N7-gaU" collectionClass="NSMutableArray" id="doe-Fx-DrT"/>
