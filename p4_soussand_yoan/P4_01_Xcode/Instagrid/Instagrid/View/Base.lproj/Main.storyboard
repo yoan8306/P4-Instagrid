@@ -50,10 +50,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sHs-Dw-lIR">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="105"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBW-8a-lNR" userLabel="UiViewPhoto1">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBW-8a-lNR" userLabel="UiViewPhoto0">
                                                         <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR3-lX-bRF" userLabel="Button Photo 0">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR3-lX-bRF" userLabel="Button Photo 0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" image="Plus"/>
@@ -61,7 +61,7 @@
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TI9-aV-MTu"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wNQ-8m-AH4" userLabel="Image Photo 0">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNQ-8m-AH4" userLabel="Image Photo 0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                             </imageView>
                                                         </subviews>
@@ -76,16 +76,19 @@
                                                             <constraint firstAttribute="bottom" secondItem="wNQ-8m-AH4" secondAttribute="bottom" id="zl6-3f-I6F"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFW-uR-2js" userLabel="UiViewPhoto2">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFW-uR-2js" userLabel="UiViewPhoto1">
                                                         <rect key="frame" x="115" y="0.0" width="105" height="105"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX7-v6-GJP" userLabel="Button Photo 1">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX7-v6-GJP" userLabel="Button Photo 1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="zX7-v6-GJP" secondAttribute="height" multiplier="1:1" id="Qxc-XV-Ft7"/>
                                                                 </constraints>
-                                                                <state key="normal" image="Plus"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <state key="normal" image="Plus">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EVz-WG-cBR"/>
                                                                 </connections>
@@ -110,13 +113,16 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dWL-IS-YhC">
                                                 <rect key="frame" x="0.0" y="115" width="220" height="105"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-wc-5i6" userLabel="UiViewPhoto4">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-wc-5i6" userLabel="UiViewPhoto2">
                                                         <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYX-ry-HtX" userLabel="Button Photo 3">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYX-ry-HtX" userLabel="Button Photo 3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" image="Plus"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <state key="normal" image="Plus">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yNI-JC-7dB"/>
                                                                 </connections>
@@ -139,13 +145,16 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRh-N7-gaU" userLabel="UiViewPhoto3">
                                                         <rect key="frame" x="115" y="0.0" width="105" height="105"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE7-HY-EBw" userLabel="Button Photo 2">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE7-HY-EBw" userLabel="Button Photo 2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="gE7-HY-EBw" secondAttribute="height" multiplier="1:1" id="dhA-Le-Hvu"/>
                                                                 </constraints>
-                                                                <state key="normal" image="Plus"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <state key="normal" image="Plus">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="slH-6i-9l1"/>
                                                                 </connections>

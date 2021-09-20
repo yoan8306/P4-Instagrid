@@ -19,6 +19,7 @@ class PrincipalViewController: UIViewController {
 
     @IBOutlet var layoutButton: [UIButton]!
     @IBOutlet var imageOfSelected: [UIImageView]!
+    
     // MARK: - properties
     private var imagePicker = UIImagePickerController()
     private var typeLayout: Layout = .layout3
@@ -114,8 +115,8 @@ class PrincipalViewController: UIViewController {
         for element in imagePhoto + buttonPhoto {
             element.layer.cornerRadius = 8
             photoContainer.layer.cornerRadius = 10
-            layoutViewCase()
         }
+        layoutViewCase()
     }
 
     /// hide or show image button selected
