@@ -110,10 +110,10 @@
 		5FEA332926B2A687003D18AF /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				5FB08DEA26F36052009D58A3 /* Extensions */,
-				5F12C3C926DF9911008E1B86 /* Enum */,
 				5F12C3CA26DF991D008E1B86 /* View */,
 				5F12C3CB26DF9933008E1B86 /* Controller */,
+				5F12C3C926DF9911008E1B86 /* Enum */,
+				5FB08DEA26F36052009D58A3 /* Extensions */,
 				5F12C3CC26DF9940008E1B86 /* SupportingFiles */,
 			);
 			path = Instagrid;
@@ -129,7 +129,6 @@
 				5FEA332326B2A687003D18AF /* Sources */,
 				5FEA332426B2A687003D18AF /* Frameworks */,
 				5FEA332526B2A687003D18AF /* Resources */,
-				5F12C3CF26DFA05A008E1B86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -186,26 +185,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5F12C3CF26DFA05A008E1B86 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FEA332326B2A687003D18AF /* Sources */ = {

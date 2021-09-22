@@ -19,7 +19,7 @@ class PrincipalViewController: UIViewController {
 
     @IBOutlet var layoutButton: [UIButton]!
     @IBOutlet var imageOfSelected: [UIImageView]!
-    
+
     // MARK: - properties
     private var imagePicker = UIImagePickerController()
     private var typeLayout: Layout = .layout3
@@ -166,7 +166,8 @@ class PrincipalViewController: UIViewController {
     private func shareActivityController() {
         let convertUiView = photoContainer.getImage()
         let image = [convertUiView]
-        let activityViewController = UIActivityViewController(activityItems: image as [UIImage], applicationActivities: nil)
+        let activityViewController =
+            UIActivityViewController(activityItems: image as [UIImage], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         present(activityViewController, animated: true, completion: nil)
     }
@@ -178,7 +179,8 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
     /// - Parameters:
     ///   - picker: identify picker used
     ///   - info: image chosen
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.editedImage] as? UIImage {
             if let targetImage = imageSelected {
                 targetImage.image = image
