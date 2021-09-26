@@ -11,20 +11,20 @@ class PrincipalViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
-
+    
     @IBOutlet weak var photoContainer: UIView!
     @IBOutlet var uiViewPhoto: [UIView]!
     @IBOutlet var buttonPhoto: [UIButton]!
     @IBOutlet var imagePhoto: [UIImageView]!
-
+    
     @IBOutlet var layoutButton: [UIButton]!
     @IBOutlet var imageOfSelected: [UIImageView]!
-
+    
     // MARK: - properties
     private var imagePicker = UIImagePickerController()
     private var typeLayout: Layout = .layout3
     private var imageSelected: UIImageView?
-
+    
     // MARK: - Life cycle
     /// prepare interface
     override func viewDidLoad() {
@@ -33,23 +33,21 @@ class PrincipalViewController: UIViewController {
         initializeViewContainer()
         addTagButtonPhoto()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        prepareViewPortraitOrLandscape()
+    }
+    
     /// for detect orientation and change label and arrow image
     /// - Parameters:
     ///   - size: size screen
     ///   - coordinator: if coordinator change
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        if UIDevice.current.orientation.isLandscape {
-            arrowImage.image = UIImage(named: "Arrow Left")
-            swipeLabel.text = "Swipe left to share"
-
-        } else {
-            arrowImage.image = UIImage(named: "Arrow Up")
-            swipeLabel.text = "Swipe up to share"
-        }
+        prepareViewPortraitOrLandscape()
     }
-
+    
     // MARK: - IBAction
     /// identify what photo want change
     /// - Parameter sender: identify button taped
@@ -57,7 +55,7 @@ class PrincipalViewController: UIViewController {
         imageSelected = imagePhoto[sender.tag]
         openPhotoLibrary()
     }
-
+    
     /// when select layout button place image selected on the button
     /// - Parameter sender: identify button layout selected
     @IBAction func buttonLayoutAction(_ sender: UIButton) {
@@ -73,12 +71,12 @@ class PrincipalViewController: UIViewController {
         }
         layoutViewCase()
     }
-
+    
     ///  identify direction swiping if left or up and allow swiping or not
     /// - Parameter sender: swipe of gestureRecognizer
     @objc func swipe(_ sender: UISwipeGestureRecognizer) {
-        let deviceOrientation = UIDevice.current.orientation
-
+        let deviceOrientation = UIApplication.shared.statusBarOrientation
+        
         switch deviceOrientation {
         case .landscapeLeft, .landscapeRight:
             if sender.direction == .left {
@@ -91,7 +89,7 @@ class PrincipalViewController: UIViewController {
         default: break
         }
     }
-
+    
     // MARK: - private function
     /// declare tag in button photo
     private func addTagButtonPhoto() {
@@ -99,7 +97,7 @@ class PrincipalViewController: UIViewController {
             buttonPhoto[indexTag].tag = indexTag
         }
     }
-
+    
     /// addGestureToPhotoContainerView
     private func addSwipeGestureToPhotoContainer() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(_:)))
@@ -109,7 +107,17 @@ class PrincipalViewController: UIViewController {
         photoContainer.addGestureRecognizer(swipeUp)
         photoContainer.addGestureRecognizer(swipeLeft)
     }
-
+    
+    private func animateSwipeLabelArrowImage(translationX axeX: CGFloat, translationY axeY: CGFloat) {
+        UIView.animate(withDuration: 0.8, delay: 0, options: [.repeat, .autoreverse], animations: {
+            self.arrowImage.transform = CGAffineTransform(translationX: axeX, y: axeY)
+            self.arrowImage.transform = .identity
+            
+            self.swipeLabel.transform = CGAffineTransform(translationX: axeX, y: axeY)
+            self.swipeLabel.transform = .identity
+        }, completion: nil)
+    }
+    
     /// smooth it out the photoContainer and subviews
     private func initializeViewContainer() {
         for element in imagePhoto + buttonPhoto {
@@ -118,18 +126,31 @@ class PrincipalViewController: UIViewController {
         }
         layoutViewCase()
     }
-
+    
     /// hide or show image button selected
     private func layoutViewCase() {
         uiViewPhoto[1].isHidden = typeLayout == .layout1
         imageOfSelected[0].isHidden = typeLayout != .layout1
-
+        
         uiViewPhoto[2].isHidden = typeLayout == .layout2
         imageOfSelected[1].isHidden = typeLayout != .layout2
-
+        
         imageOfSelected[2].isHidden = typeLayout != .layout3
     }
-
+    
+    /// initialize arrow and label  if device is portrait or landscape
+    private func prepareViewPortraitOrLandscape() {
+        if  UIApplication.shared.statusBarOrientation.isPortrait  {
+            arrowImage.image = UIImage(named: "Arrow Up")
+            swipeLabel.text = "Swipe up to share"
+            animateSwipeLabelArrowImage(translationX: 0, translationY: -10)
+        } else {
+            arrowImage.image = UIImage(named: "Arrow Left")
+            swipeLabel.text = "Swipe left to share"
+            animateSwipeLabelArrowImage(translationX: -10, translationY: 0)
+        }
+    }
+    
     /// animation photoContainer after swipe
     /// - Parameters:
     ///   - axeX: translation to axe X
@@ -144,7 +165,7 @@ class PrincipalViewController: UIViewController {
             }
         }
     }
-
+    
     /// open user's library photo with imagePicker
     private func openPhotoLibrary() {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
@@ -154,14 +175,14 @@ class PrincipalViewController: UIViewController {
             present(imagePicker, animated: true, completion: nil)
         }
     }
-
+    
     /// send Photo Container View to origine
     private func animateBackToCenter() {
         UIView.animate(withDuration: 0.8, animations: {
             self.photoContainer.transform = .identity
         }, completion: nil)
     }
-
+    
     /// share photo with UiActivityViewController
     private func shareActivityController() {
         let convertUiView = photoContainer.getImage()
@@ -188,7 +209,7 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     /// if picker image is cancelled picker dismiss
     /// - Parameter picker: identify picker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
