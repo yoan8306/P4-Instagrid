@@ -32,20 +32,24 @@ class PrincipalViewController: UIViewController {
         addSwipeGestureToPhotoContainer()
         initializeViewContainer()
         addTagButtonPhoto()
+        prepareArrowImageLabelDeviceIsPortraitOrLandscape()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        prepareViewPortraitOrLandscape()
-    }
     
     /// for detect orientation and change label and arrow image
     /// - Parameters:
     ///   - size: size screen
     ///   - coordinator: if coordinator change
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        prepareViewPortraitOrLandscape()
+        if  UIDevice.current.orientation.isPortrait  {
+            arrowImage.image = UIImage(named: "Arrow Up")
+            swipeLabel.text = "Swipe up to share"
+            animateSwipeLabelArrowImage(translationX: 0, translationY: -10)
+        } else {
+            arrowImage.image = UIImage(named: "Arrow Left")
+            swipeLabel.text = "Swipe left to share"
+            animateSwipeLabelArrowImage(translationX: -10, translationY: 0)
+        }
     }
     
     // MARK: - IBAction
@@ -138,8 +142,8 @@ class PrincipalViewController: UIViewController {
         imageOfSelected[2].isHidden = typeLayout != .layout3
     }
     
-    /// initialize arrow and label  if device is portrait or landscape
-    private func prepareViewPortraitOrLandscape() {
+    /// check device is portrait or landscape and initialize arrow and label
+    private func prepareArrowImageLabelDeviceIsPortraitOrLandscape() {
         if  UIApplication.shared.statusBarOrientation.isPortrait  {
             arrowImage.image = UIImage(named: "Arrow Up")
             swipeLabel.text = "Swipe up to share"
