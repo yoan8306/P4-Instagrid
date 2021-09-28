@@ -32,7 +32,7 @@ class PrincipalViewController: UIViewController {
         addSwipeGestureToPhotoContainer()
         initializeViewContainer()
         addTagButtonPhoto()
-        prepareArrowImageLabelDeviceIsPortraitOrLandscape()
+        checkStatusBarOrientation()
     }
     
     
@@ -41,14 +41,11 @@ class PrincipalViewController: UIViewController {
     ///   - size: size screen
     ///   - coordinator: if coordinator change
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         if  UIDevice.current.orientation.isPortrait  {
-            arrowImage.image = UIImage(named: "Arrow Up")
-            swipeLabel.text = "Swipe up to share"
-            animateSwipeLabelArrowImage(translationX: 0, translationY: -10)
+            setupSwipeToShareUI(isPortrait: true)
         } else {
-            arrowImage.image = UIImage(named: "Arrow Left")
-            swipeLabel.text = "Swipe left to share"
-            animateSwipeLabelArrowImage(translationX: -10, translationY: 0)
+            setupSwipeToShareUI(isPortrait: false)
         }
     }
     
@@ -112,6 +109,10 @@ class PrincipalViewController: UIViewController {
         photoContainer.addGestureRecognizer(swipeLeft)
     }
     
+    /// animate label and arrow image
+    /// - Parameters:
+    ///   - axeX: animate on axe X
+    ///   - axeY: animate on axe y
     private func animateSwipeLabelArrowImage(translationX axeX: CGFloat, translationY axeY: CGFloat) {
         UIView.animate(withDuration: 0.8, delay: 0, options: [.repeat, .autoreverse], animations: {
             self.arrowImage.transform = CGAffineTransform(translationX: axeX, y: axeY)
@@ -142,9 +143,19 @@ class PrincipalViewController: UIViewController {
         imageOfSelected[2].isHidden = typeLayout != .layout3
     }
     
-    /// check device is portrait or landscape and initialize arrow and label
-    private func prepareArrowImageLabelDeviceIsPortraitOrLandscape() {
+    /// setupUI with status bar orientation
+    private func checkStatusBarOrientation() {
         if  UIApplication.shared.statusBarOrientation.isPortrait  {
+            setupSwipeToShareUI(isPortrait: true)
+        } else {
+            setupSwipeToShareUI(isPortrait: false)
+        }
+    }
+    
+    /// setup swipeLabel and arrow image on portrait or landscape
+    /// - Parameter isPortrait: <#isPortrait description#>
+    private func setupSwipeToShareUI(isPortrait: Bool) {
+        if isPortrait {
             arrowImage.image = UIImage(named: "Arrow Up")
             swipeLabel.text = "Swipe up to share"
             animateSwipeLabelArrowImage(translationX: 0, translationY: -10)
@@ -206,10 +217,8 @@ extension PrincipalViewController: UINavigationControllerDelegate, UIImagePicker
     ///   - info: image chosen
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            if let targetImage = imageSelected {
-                targetImage.image = image
-            }
+        if let image = info[.editedImage] as? UIImage, let targetImage = imageSelected {
+            targetImage.image = image
         }
         picker.dismiss(animated: true, completion: nil)
     }
